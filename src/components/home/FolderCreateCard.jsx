@@ -14,7 +14,7 @@ function FolderCreateCard() {
 
   return (
 <>
-<Card  style={{ width:"100%",height:"65%" ,backgroundColor:"#fff"}}>
+<Card  style={{ width:"80%",height:"65%" ,backgroundColor:"#fff"}}>
 <Button style={{position:"relative",width:"100%",height:"100%"}} variant="primary" onClick={handleShow}>
        Create Folder
       </Button>

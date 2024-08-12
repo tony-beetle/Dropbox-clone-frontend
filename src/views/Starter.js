@@ -67,7 +67,7 @@ const Starter = () => {
         </Col>
      {/* card-3 */}
   
-        <Col style={{ zIndex: 1 }} sm="6" lg="3">
+        {/* <Col style={{ zIndex: 1 }} sm="6" lg="3">
           <TopCards
             bg="bg-light-warning text-success"
             title=""
@@ -75,7 +75,7 @@ const Starter = () => {
             earning="People"
             icon="bi bi-folder-plus"
           />
-        </Col>
+        </Col> */}
       </Row>
       {/***Sales & Feed***/}
       {/* <Row>
@@ -84,8 +84,8 @@ const Starter = () => {
       </Row> */}
       {/***Table ***/}
       <Row>
-        <Col lg="12" sm="6">
-          <ProjectTables />
+        <Col lg="12" sm="12">
+          <ProjectTables/>
         </Col>
       </Row>
       {/***Blog Cards***/}

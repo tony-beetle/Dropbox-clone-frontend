@@ -5,10 +5,15 @@ import "./styles.css";
 import { Hidden } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axiosInstance from '../../Services/axiosInstance';
 
 function UploadCard() {
   //
   const [file, setFile] = useState(null);
+
+
 
   const handleUpload = async (e) => {
     setFile(e.target.files[0]); // Assuming single file upload
@@ -16,14 +21,23 @@ function UploadCard() {
       const formData = new FormData();
       formData.append('myFile', file);
       console.log(formData);
-      try {
-        const response = await axios.post("http://localhost:5000/upload", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
+      try { const response = await axiosInstance.post("upload", formData, {
+          headers: { "Content-Type": "multipart/form-data" ,},
         });
        console.log(response);
+      //  console.log(token);
+       if(response.status==200){
+       // alert("File uploaded Successfully")
+       toast.success('File Uploaded Successfully!',  {
+        position: "top-right"
+      })
+       }else{
+        toast.error('error! occured Try again');
+       }
         
       } catch (err) {
         console.log(err);
+
       }
     }
   };
@@ -51,6 +65,7 @@ function UploadCard() {
 
   return (
     <>
+     <ToastContainer />
       <Card
         style={{
           width: "100%",

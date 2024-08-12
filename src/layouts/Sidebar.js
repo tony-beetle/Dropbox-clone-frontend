@@ -79,8 +79,7 @@ const navigation = [
 
 const Sidebar = () => {
   const showMobilemenu = () => {
-    document.getElementById("sidebarArea").classList.toggle("showSidebar");
-  };
+    document.getElementById("sidebarArea").classList.toggle("showSidebar") };
   let location = useLocation();
 
   return (

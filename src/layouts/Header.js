@@ -18,7 +18,6 @@ import {
 } from "reactstrap";
 
 import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowhite.svg";
-import user1 from "../assets/images/users/user1.jpg";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { TextField } from "@mui/material";
 import { FormControl } from "react-bootstrap";
@@ -100,7 +99,6 @@ const Header = () => {
               <Dropdown isOpen={dropdownOpen} toggle={toggle}>
                 <DropdownToggle color="primary">
                   <img
-                    src={user1}
                     alt="profile"
                     className="rounded-circle"
                     width="30"

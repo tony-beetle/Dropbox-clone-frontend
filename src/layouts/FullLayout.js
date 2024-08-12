@@ -20,11 +20,11 @@ const FullLayout = () => {
         {/***----Content Area----***/}
 
         <div className="contentArea">
-          {/***-----header----***/}
+        
           <Header/>
           {/***-----Middle Content-----***/}
           <Container className="p-4 wrapper" fluid>
-            {/* <TopCards/> */}
+            <TopCards/>
           {/* <ProjectTables/> */} 
            {/* <Outlet /> */}
             <Starter/> 

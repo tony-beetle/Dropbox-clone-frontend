@@ -1,59 +1,24 @@
 import { Card, CardBody, CardTitle, CardSubtitle, Table } from "reactstrap";
-import user1 from "../../assets/images/users/user1.jpg";
-import user2 from "../../assets/images/users/user2.jpg";
-import user3 from "../../assets/images/users/user3.jpg";
-import user4 from "../../assets/images/users/user4.jpg";
-import user5 from "../../assets/images/users/user5.jpg";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import axiosInstance from "../../Services/axiosInstance";
 
-const tableData = [
-  {
-    avatar: user1,
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    project: "pdf",
-    status: "pending",
-    weeks: "35",
-    budget: "95K",
-  },
-  {
-    avatar: user2,
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    project: "pdf",
-    status: "done",
-    weeks: "35",
-    budget: "95K",
-  },
-  {
-    avatar: user3,
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    project: "jpg",
-    status: "holt",
-    weeks: "35",
-    budget: "95K",
-  },
-  {
-    avatar: user4,
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    project: "mp4",
-    status: "pending",
-    weeks: "35",
-    budget: "95K",
-  },
-  {
-    avatar: user4,
-    name: "Hanna Gover",
-    email: "hgover@gmail.com",
-    project: "mp4",
-    status: "pending",
-    weeks: "35",
-    budget: "95K",
-  }
-];
+
 
 const ProjectTables = () => {
+  //
+  const [files, setFiles] = useState([]);
+
+  useEffect(() => {
+    const fetchFiles = async () => {
+      const response = await axiosInstance.get('/api/files');
+      setFiles(response.data);
+      console.log(files);
+    };
+
+    fetchFiles();
+  }, []);
+  
   return (
     <div>
       <Card>
@@ -67,44 +32,28 @@ const ProjectTables = () => {
             <thead>
               <tr>
                 <th>File Name</th>
-                <th>type</th>
+                {/* <th>type</th> */}
                 <th>access</th>
                 <th>size</th>
                 <th>created</th>
               </tr>
             </thead>
             <tbody>
-              {tableData.map((tdata, index) => (
+              {files.map((file, index) => (
                 <tr key={index} className="border-top">
                   <td>
                     <div className="d-flex align-items-center p-2">
                       
-                      <div className="ms-1">
-                        <h6 className="mb-0 ">{tdata.name}</h6>
-                        {/* <span className="text-muted">{tdata.email}</span> */}
+                      <div className="">
+                        <h6 className="mb-0 ">{file.key}</h6>
+                        {/* <span className="text-muted">{file.email}</span> */}
                       </div>
                     </div>
                   </td>
-                  <td>{tdata.project}</td>
-                  <td>
-                    {/* {tdata.status === "pending" ? (
-                      <span className="p-2 bg-danger rounded-circle d-inline-block ms-3"></span>
-                    ) : tdata.status === "holt" ? (
-                      <span className="p-2 bg-warning rounded-circle d-inline-block ms-3"></span>
-                    ) : (
-                      <span className="p-2 bg-success rounded-circle d-inline-block ms-3"></span>
-                    )} */}
-                    <img
-                        src={tdata.avatar}
-                        className="rounded-circle"
-                        alt="avatar"
-                        width="45"
-                        height="45"
-                      />
-                  </td>
-                  
-                  <td>{tdata.weeks}</td>
-                  <td>{tdata.budget}</td>
+                  <td>{<a href={file.url} target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-cloud-arrow-down"></i></a>}</td>
+
+                  <td>{(file.size)/102400} Mb</td>
+                  <td>{file.LastModified}</td>
                 </tr>
               ))}
             </tbody>
