@@ -10,7 +10,6 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import Blog from "../../components/dashboard/Blog";
 import bg1 from "../../assets/images/bg/bg1.jpg";
 import bg2 from "../../assets/images/bg/bg2.jpg";
 import bg3 from "../../assets/images/bg/bg3.jpg";
@@ -61,13 +60,13 @@ const Cards = () => {
       <Row>
         {BlogData.map((blg, index) => (
           <Col sm="6" lg="6" xl="3" key={index}>
-            <Blog
+            {/* <Blog
               image={blg.image}
               title={blg.title}
               subtitle={blg.subtitle}
               text={blg.description}
               color={blg.btnbg}
-            />
+            /> */}
           </Col>
         ))}
       </Row>

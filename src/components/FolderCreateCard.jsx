@@ -7,8 +7,7 @@ import { Card } from 'react-bootstrap';
 
 function FolderCreateCard() {
     //
-    const [show , setShow] = useState(false);
-
+  const [show,setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -26,7 +25,7 @@ function FolderCreateCard() {
         <Modal.Body>
         <Form>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Email address</Form.Label>
+        <Form.Label>Folder Name</Form.Label>
         <Form.Control type="text" placeholder="Folder Name" />
       </Form.Group>
      

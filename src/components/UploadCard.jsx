@@ -1,19 +1,17 @@
 import React, { useEffect } from "react";
 import { Card, CardBody } from "reactstrap";
 import Dropdown from "react-bootstrap/Dropdown";
-import "./styles.css";
+// import "./styles.css";
 import { Hidden } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axiosInstance from '../../Services/axiosInstance';
+import axiosInstance from '../Services/axiosInstance';
 
 function UploadCard() {
   //
   const [file, setFile] = useState(null);
-
-
 
   const handleUpload = async (e) => {
     setFile(e.target.files[0]); // Assuming single file upload
@@ -31,6 +29,7 @@ function UploadCard() {
        toast.success('File Uploaded Successfully!',  {
         position: "top-right"
       })
+      
        }else{
         toast.error('error! occured Try again');
        }
@@ -95,6 +94,7 @@ function UploadCard() {
                 <label for="files" class="btn">
                   Select File
                 </label>
+         
                 <input
                   onChange={handleUpload}
                   name="myFile"
@@ -103,6 +103,21 @@ function UploadCard() {
                   type="file"
                 />
               </Dropdown.Item>
+              {/* <Dropdown.Item >
+              <label for="folder" class="btn">
+                  Select Folder
+                </label>
+              <input
+        type="folder"
+        webkitdirectory="true"
+        directory="true"
+        multiple
+        onChange={handleUpload}
+        style={{ visibility: "hidden" }}
+      />
+              </Dropdown.Item>
+             */}
+
             </Dropdown.Menu>
           </Dropdown>
         </CardBody>

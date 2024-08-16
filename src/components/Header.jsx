@@ -1,4 +1,5 @@
 import React from "react";
+import "../Styles/header.css"
 import { Link } from "react-router-dom";
 import Input from "@mui/material";
 import InputAdornment from '@mui/material/InputAdornment';
@@ -16,13 +17,15 @@ import {
   Dropdown,
   Button,
 } from "reactstrap";
+import { useNavigate } from "react-router-dom";
 
-import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowhite.svg";
+// import { ReactComponent as LogoWhite } from "../assets/images/logos/xtremelogowhite.svg";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { TextField } from "@mui/material";
 import { FormControl } from "react-bootstrap";
 
 const Header = () => {
+  const navigate = useNavigate()
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
@@ -32,21 +35,23 @@ const Header = () => {
   };
   const showMobilemenu = () => {
     document.getElementById("sidebarArea").classList.toggle("showSidebar");
+    console.log("mobileview clicked");
+    
   };
   return (
     <>
-      <Navbar color="primary" className="" dark expand="md">
+      <Navbar  color="primary" className="" id="navbar" dark expand="md">
         <div className="d-flex ">
           {/* mobile view logo */}
           <NavbarBrand href="" className="d-lg-none">
-            <LogoWhite />
+            {/* <LogoWhite /> */}
           </NavbarBrand>
           {/*sidebar Icon button in mobile view*/}
           <Button
             size="lg"
             color="primary"
             className="d-lg-none"
-            onClick={() => showMobilemenu()}
+            onClick={showMobilemenu}
           >
             <i className="bi bi-list"></i>
           </Button>
@@ -66,15 +71,13 @@ const Header = () => {
           </Button>
         </div>
                 {/* search field in mobile view & laptop */}
-       
-               
-
-        <input  style={{width:"400px"}}
+      
+      
+         <input  style={{width:"350px", height:"42px"}}
                 class="form-control "
                 type="text"
-               
                 placeholder="  Search file here"
-              />
+              /> 
 
         <Collapse navbar isOpen={isOpen} className="">
           <Nav
@@ -103,15 +106,17 @@ const Header = () => {
                     className="rounded-circle"
                     width="30"
                   ></img>
+                  {/* <Button></Button> */}
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem header>Info</DropdownItem>
+                  {/* <DropdownItem header>Info</DropdownItem> */}
                   <DropdownItem>My Account</DropdownItem>
                   <DropdownItem>Edit Profile</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>My Balance</DropdownItem>
+                  {/* <DropdownItem divider /> */}
+                  {/* <DropdownItem>My Balance</DropdownItem> */}
                   <DropdownItem>Inbox</DropdownItem>
-                  <DropdownItem>Logout</DropdownItem>
+                  <Link to={"/login"}><DropdownItem>Logout</DropdownItem></Link>
+               
                 </DropdownMenu>
               </Dropdown>
             </div>

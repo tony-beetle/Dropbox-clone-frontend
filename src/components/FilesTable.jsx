@@ -1,11 +1,11 @@
 import { Card, CardBody, CardTitle, CardSubtitle, Table } from "reactstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import axiosInstance from "../../Services/axiosInstance";
+import axiosInstance from "../Services/axiosInstance";
 
 
 
-const ProjectTables = () => {
+const ProjectTables = ( ) => {
   //
   const [files, setFiles] = useState([]);
 

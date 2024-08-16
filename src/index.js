@@ -3,23 +3,22 @@ import React, { Suspense } from "react";
 import {createRoot} from 'react-dom/client';
 import "./assets/scss/style.scss";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
-import Loader from "./layouts/loader/Loader";
 import { Card } from "reactstrap";
-import SalesChart from "./components/dashboard/SalesChart";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Login from "./Auth/Login";
+import Register from "./Auth/Register";
+import Profile from "./Pages/Profile";
   
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
-  <Suspense fallback={<Loader/>}>
+  <Suspense >
       <BrowserRouter>
       <Routes>
         <Route path="/" Component={App}></Route>
+        <Route path="/profile" Component={Profile}></Route>
         {/* <Route path="/card" Component={SalesChart}></Route> */}
         <Route path="/login" Component={Login}></Route>
         <Route path="/register" Component={Register}></Route>
@@ -32,7 +31,3 @@ root.render(
   // document.getElementById("root")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

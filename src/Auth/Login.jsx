@@ -37,6 +37,7 @@ function Login() {
           navigate("/");
         } else if (res.status === 404) {
           alert(res.data);
+          
         }
       } catch (error) {
         // Handle errors
