@@ -11,8 +11,7 @@ function Dashboard() {
   return (
     <>
       <div className="pageWrapper d-lg-flex">
-        {/***----Sidebar----****/}
-        <aside className="sidebarArea shadow" id="sidebarArea">
+        <aside style={{width:"220px"}} className="sidebarArea shadow" id="sidebarArea">
           <Sidebar />
         </aside>
         <div className="contentArea">

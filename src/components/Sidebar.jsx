@@ -51,7 +51,7 @@ function Sidebar() {
         </span>
       </div>
       <div className="pt-4 mt-2">
-        <Nav vertical className="sidebarNav">
+        <Nav  vertical className="sidebarNav">
           {navigation.map((navi, index) => (
             <NavItem key={index} className="sidenav-bg">
               <Link
